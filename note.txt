@@ -1,0 +1,98 @@
+//Task 1 Answer:...............................
+
+composer create-project laravel/laravel MigrationAssignment
+
+
+//Task 2 Answer:...............................
+
+  1. For Create a table give below command:
+       php artisan make:migration create_products_table
+
+  2. For Add column to table:
+		public function up()
+		{
+			Schema::create('products', function (Blueprint $table) {
+				$table->id();
+				$table->string('name');
+				$table->decimal('price', 8, 2);
+				$table->text('description');
+				$table->timestamps();
+			});
+		}
+
+		public function down()
+		{
+		   Schema::dropIfExists('products');
+		}
+
+
+
+
+//Task 3 Answer:...............................
+    php artisan migrate
+
+
+
+//Task 4 Answer:...............................
+
+ 1. For add a new column called "quantity" to the "products" table: 
+
+	public function up()
+	{
+	    Schema::table('products', function (Blueprint $table) {
+	        $table->integer('quantity')->nullable();
+	    });
+	}
+
+ 2. php artisan migrate:refresh
+
+
+//Task 5 Answer:...............................
+
+  1. For create a new migration file named "add_category_to_products_table" give below command: 
+       php artisan make:migration add_category_to_products_table
+
+
+  2. Inside the up method add the following line for a new "category" column: 
+	    public function up()
+		{
+		    Schema::table('products', function (Blueprint $table) {
+		        $table->string('category', 50);
+		    });
+		}
+
+
+
+
+//Task 6 Answer:...............................
+    php artisan migrate
+
+
+//Task 7 Answer:...............................
+
+  1. For Create a orders table give below command:
+       php artisan make:migration create_orders_table
+
+  2. For Add column to orders table:
+
+		public function up()
+		{
+			Schema::create('products', function (Blueprint $table) {
+				$table->id();
+				$table->string('name');
+				$table->decimal('price', 8, 2);
+				$table->text('description');
+				$table->timestamps();
+			});
+		}
+
+		public function down()
+		{
+		   Schema::dropIfExists('products');
+		}
+
+
+
+
+//Task 8 Answer:...............................
+    php artisan migrate
